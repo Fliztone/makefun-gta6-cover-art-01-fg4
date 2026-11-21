@@ -1,0 +1,3 @@
+# Pin every file byte-for-byte: no CRLF/LF normalization anywhere in this repo.
+* -text
+# witness: final tree pinned for the recording

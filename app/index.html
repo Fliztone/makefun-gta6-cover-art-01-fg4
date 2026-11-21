@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vice Cover — multi-panel cover art studio</title>
+  <meta name="description" content="Turn your own photos into GTA-style multi-panel cover art with Vice City color grades, bold lettering and one-click PNG export. Fully offline.">
+  <link rel="stylesheet" href="css/studio.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23120826'/%3E%3Cpath d='M6 22 L13 9 L16 16 L19 9 L26 22' stroke='%23ff2e88' stroke-width='3' fill='none'/%3E%3Ccircle cx='16' cy='25' r='2.4' fill='%2329e6ff'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header id="topbar">
+    <div id="brand">
+      <span id="brand-badge" aria-hidden="true">VI</span>
+      <div id="brand-text">
+        <h1>VICE COVER</h1>
+        <p>multi-panel cover art studio</p>
+      </div>
+    </div>
+    <p id="privacy-note">100% offline — your photos never leave this device</p>
+  </header>
+
+  <main id="workspace">
+    <section id="stage" aria-label="Live cover preview">
+      <canvas id="preview" width="720" height="720"></canvas>
+      <p id="stage-hint">Drag a panel to recompose it · scroll over a panel to zoom · drop photos anywhere</p>
+    </section>
+
+    <aside id="controls" aria-label="Cover controls">
+      <section class="group">
+        <h2>1 · Layout</h2>
+        <div id="layout-chips" class="chips" role="group" aria-label="Layout"></div>
+      </section>
+
+      <section class="group">
+        <h2>2 · Color grade</h2>
+        <div id="grade-chips" class="chips" role="group" aria-label="Color grade"></div>
+      </section>
+
+      <section class="group">
+        <h2>3 · Panels &amp; photos</h2>
+        <div id="panel-list"></div>
+        <div class="button-row">
+          <button id="fill-all" type="button" title="Use the selected panel's photo in every panel">One photo → all</button>
+          <button id="reseed" type="button" title="Re-roll the procedural sample scenes">Shuffle scenes</button>
+          <button id="reset-crops" type="button">Reset crops</button>
+        </div>
+        <label id="upload-label" for="photo-input">＋ Add your photos…</label>
+        <input id="photo-input" type="file" accept="image/*" multiple hidden>
+        <p class="fineprint">Loaded locally, never uploaded. Pick several to fill the panels, or push one photo everywhere.</p>
+      </section>
+
+      <section class="group">
+        <h2>4 · Caption</h2>
+        <label class="field"><span>Title</span>
+          <input id="title-input" type="text" maxlength="28" value="VICE CITY" autocomplete="off" spellcheck="false">
+        </label>
+        <label class="field"><span>Tagline</span>
+          <input id="tagline-input" type="text" maxlength="48" value="SUMMER NEVER ENDS" autocomplete="off" spellcheck="false">
+        </label>
+        <div id="lettering-chips" class="chips" role="group" aria-label="Lettering style"></div>
+      </section>
+
+      <section class="group">
+        <h2>5 · Export</h2>
+        <div id="size-chips" class="chips" role="group" aria-label="Export size"></div>
+        <button id="export-btn" type="button">Export PNG</button>
+        <p class="fineprint">Square 1080×1080 · Portrait 1080×1350 · Wide 1920×1080</p>
+      </section>
+    </aside>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/studio.js"></script>
+</body>
+</html>
+<!-- build marker -->
